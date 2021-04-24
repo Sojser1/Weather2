@@ -1,6 +1,10 @@
 <template>
   <div class="main__bottom">
-    <v-item v-for="(i, id) in 6" :key="id"></v-item>
+    <v-item
+      v-for="(i, id) in rightArray"
+      :key="id"
+      :weather="weekWeather[id]"
+    ></v-item>
   </div>
 </template>
 
@@ -8,11 +12,14 @@
 import vItem from './v-item.vue'
 export default {
   props: {
-    weekWeather: Object,
+    weekWeather: Array,
   },
   components: { vItem },
-  computed() {
-    for (let i = 0; i < this.weekWeather.length; i++) {}
+  methods: {},
+  computed: {
+    rightArray() {
+      return this.weekWeather.slice(0, 6)
+    },
   },
 }
 </script>

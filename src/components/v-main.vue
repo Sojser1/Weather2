@@ -4,7 +4,7 @@
       :currentWeather="weatherOption.current"
       :cityName="cityName"
     ></v-main-top>
-    <v-main-bottom :weekWeather="weatherOption.hourly"></v-main-bottom>
+    <v-main-bottom :weekWeather="weatherOption.daily"></v-main-bottom>
   </div>
 </template>
 
