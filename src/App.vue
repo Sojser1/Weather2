@@ -7,6 +7,7 @@
         :weatherOption="city.weather"
         :cityName="city.name"
       ></v-main>
+      <v-error v-if="error"></v-error>
     </div>
   </div>
 </template>
@@ -15,10 +16,11 @@
 import VHeader from './components/v-header.vue'
 import vItem from './components/v-item.vue'
 import VMain from './components/v-main'
+import VError from './components/v-error.vue'
 import { getWeatherFromApi } from './api'
 
 export default {
-  components: { vItem, VHeader, VMain },
+  components: { vItem, VHeader, VMain, VError },
   data() {
     return {
       city: null,
@@ -33,6 +35,12 @@ export default {
     hasError() {
       if (this.city) {
         return this.city.hasError === false
+      }
+      return false
+    },
+    error() {
+      if (this.city) {
+        return this.city.hasError === true
       }
       return false
     },
