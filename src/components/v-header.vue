@@ -11,11 +11,6 @@
         class="header__input"
         @keypress.enter="getWeather"
       />
-      <div
-        class="header__image"
-        :class="inputIcon"
-        @click="inputIconClick"
-      ></div>
     </div>
   </div>
 </template>
@@ -48,9 +43,9 @@ export default {
     hasActive() {
       return this.cityName.length > 0
     },
-    inputIcon() {
-      return this.hasActive ? 'trash' : 'search'
-    },
+    // inputIcon() {
+    //   return this.hasActive ? 'trash' : 'search'
+    // },
   },
 }
 </script>
