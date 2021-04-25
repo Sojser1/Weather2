@@ -1,4 +1,4 @@
-$main_color: #000;
+$main_color: rgb(10, 9, 9);
 $header_height: 50px;
 $svg_size: 18px;
 $main_weather_size: 100px;
@@ -47,7 +47,7 @@ body {
   &__search {
     input {
       outline: none;
-      // border: none;
+      border: none;
       padding: 5px;
       width: 250px;
       height: 40px;
@@ -72,7 +72,7 @@ body {
 
 .main {
   display: grid;
-  grid-template: 250px 1fr / minmax(320px, 1fr);
+  grid-template: 300px 1fr / minmax(320px, 1fr);
   margin: 50px 0 0 0;
   gap: 50px;
 
@@ -88,7 +88,9 @@ body {
   &__header {
     h2 {
       margin: 10px 0;
-      text-transform: uppercase;
+      &:first-letter {
+        text-transform: uppercase;
+      }
     }
   }
 
@@ -106,6 +108,9 @@ body {
 
   &__description {
     margin-bottom: 10px;
+    &:first-letter {
+      text-transform: uppercase;
+    }
   }
 
   &__feels {
@@ -116,7 +121,6 @@ body {
   &__footer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 15px;
     width: 100%;
     span {
       display: block;
@@ -177,6 +181,8 @@ body {
 
 .error {
   width: 100%;
+  padding: 15px;
+  text-align: justify;
   margin-top: 50px;
   background-color: rgb(255, 105, 105);
   height: 150px;
@@ -266,5 +272,9 @@ body {
       grid-area: footer;
       margin-top: 20px;
     }
+  }
+
+  .error {
+    margin-top: 70px;
   }
 }

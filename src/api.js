@@ -11,7 +11,7 @@ export const getWeatherFromApi = async (cityName) => {
   res.name = cityName
   res.weather = weather
   res.hasError = hasError
-
+  saveToSessionStorage(cityName)
   return res
 }
 
@@ -31,4 +31,8 @@ const getCityCoord = (cityName) => {
     )
     .then((r) => r.data.coord)
     .catch(() => (hasError = true))
+}
+
+function saveToSessionStorage(cityName) {
+  sessionStorage.setItem('cityName', cityName)
 }

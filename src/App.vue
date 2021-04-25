@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <div class="container">
-      <v-header @getWeather="getWeather"></v-header>
+      <v-header @getWeather="getWeather" @removeCity="removeCity"></v-header>
       <v-main
         v-if="hasError"
         :weatherOption="city.weather"
@@ -26,9 +26,18 @@ export default {
       city: null,
     }
   },
+  mounted() {
+    const sessionData = sessionStorage.getItem('cityName')
+    if (sessionData) {
+      this.getWeather(sessionData)
+    }
+  },
   methods: {
     async getWeather(cityName) {
       this.city = await getWeatherFromApi(cityName)
+    },
+    removeCity() {
+      this.city = null
     },
   },
   computed: {

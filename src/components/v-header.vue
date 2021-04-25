@@ -1,7 +1,7 @@
 <template>
   <div class="header">
-    <div class="header__logo">
-      <a href="/"><h1>weather</h1></a>
+    <div class="header__logo" @click="removeStorage">
+      <h1>weather</h1>
     </div>
     <div class="header__search">
       <input
@@ -37,6 +37,10 @@ export default {
       const cityName = this.cityName.trim()
       this.$emit('getWeather', cityName)
       this.cityName = ''
+    },
+    removeStorage() {
+      sessionStorage.removeItem('cityName')
+      this.$emit('removeCity')
     },
   },
   computed: {
